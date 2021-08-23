@@ -16,7 +16,7 @@ on:
         default: 'main'
   
 jobs:
-  build_panther_driver:
+  build_panther_gazebo:
     runs-on: ubuntu-18.04
 
     steps:
@@ -44,8 +44,8 @@ jobs:
     - name: Build and push docker pull husarion/panther-gazebo
       uses: docker/build-push-action@v2
       with:
-        context: ./panther_driver
-        file: ./panther_driver/Dockerfile
+        context: ./panther_gazebo
+        file: ./panther_gazebo/Dockerfile
         platforms: linux/arm64, linux/amd64
         push: true
         tags: husarion/panther-gazebo:noetic-latest
