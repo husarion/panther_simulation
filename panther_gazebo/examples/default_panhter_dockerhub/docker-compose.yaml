@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   panther_gazebo:
-    iamge: husarion/panther-gazebo
+    image: husarion/panther-gazebo
     environment:
       - "DISPLAY"
       - "QT_X11_NO_MITSHM=1"

@@ -2,8 +2,7 @@ version: '3.4'
 
 services:
   panther_gazebo:
-    build:
-      context: ./../../
+    image: husarion/panther-gazebo
     runtime: nvidia
     environment:
       - "DISPLAY"
