@@ -24,9 +24,12 @@ RUN pip3 install \
 # Create and initialise ROS workspace
 RUN mkdir -p /ros_ws/src
 COPY ./panther_gazebo /ros_ws/src/panther_gazebo
+RUN git clone https://github.com/husarion/panther_description.git --branch=dev \
+    && mv /panther_description/panther_description /ros_ws/src/panther_description \
+    && rm -rf /panther_description
+
 WORKDIR /ros_ws
-RUN git clone https://github.com/husarion/panther_description.git --branch=dev src/panther_description \
-    && mkdir build \
+RUN mkdir build \
     && source /opt/ros/$ROS_DISTRO/setup.bash \
     && rosdep update \
     && rosdep install --from-paths src --ignore-src -r -y \

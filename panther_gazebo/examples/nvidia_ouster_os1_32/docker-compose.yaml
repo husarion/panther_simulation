@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  panther_lights_controller:
+  panther_gazebo:
     build:
       context: ./../../
     runtime: nvidia
@@ -12,7 +12,6 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      # - type: bind
-      #   source: ./src/panther_description
-      #   target: /ros_ws/src/panther_description
-    command: roslaunch panther_gazebo panther_rviz.launch
+      - ./panther.urdf.xacro:/ros_ws/src/panther_description/urdf/panther.urdf.xacro
+      - ./panhter_nvidia.launch:/ros_ws/src/panther_gazebo/launch/panhter_nvidia.launch
+    command: roslaunch panther_gazebo panhter_nvidia.launch
