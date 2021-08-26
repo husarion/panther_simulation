@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   panther_gazebo:
-    image: husarion/panther-gazebo
+    image: husarion/panther-gazebo:noetic-latest
     runtime: nvidia
     environment:
       - "DISPLAY"
