@@ -9,17 +9,16 @@ RUN apt update \
 
 RUN apt install -y \
     ros-$ROS_DISTRO-xacro \
-    ros-$ROS_DISTRO-geographic-msgs \
-    ros-$ROS_DISTRO-joint-state-publisher \
     ros-$ROS_DISTRO-gazebo-ros-pkgs \
-    ros-$ROS_DISTRO-geometry2
+    ros-$ROS_DISTRO-geographic-msgs \
+    ros-$ROS_DISTRO-joint-state-publisher
 
 WORKDIR /app
 
 # Create and initialise ROS workspace
 RUN mkdir -p ros2_ws/src
-RUN git clone https://github.com/husarion/panther_description.git --branch=ros2-gazebo \
-    && git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git --branch=foxy-devel ros2_ws/src/hector_gazebo
+RUN git clone https://github.com/husarion/panther_description.git --branch=ros2-gazebo --single-branch ros2_ws/src/panther_description \
+    && git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git --branch=foxy-devel --single-branch ros2_ws/src/hector_gazebo
 
 COPY ./panther_gazebo ros2_ws/src/panther_gazebo
 

@@ -16,23 +16,23 @@ slam_toolbox:
     scan_topic: laser/scan
 
     debug_logging: false
-    throttle_scans: 1
+    throttle_scans: 2
     transform_publish_period: 0.25 #if 0 never publishes odometry
-    map_update_interval: 3.0
-    resolution: 0.06
-    max_laser_range: 12.0 #for rastering images
+    map_update_interval: 1.0
+    resolution: 0.1
+    max_laser_range: 18.0 #for rastering images
     minimum_time_interval: 0.05
     transform_timeout: 0.5
     tf_buffer_duration: 10.0
-    stack_size_to_use: 80000000 #// program needs a larger stack size to serialize large maps
+    stack_size_to_use: 40000000 #// program needs a larger stack size to serialize large maps
     enable_interactive_mode: false
 
     # General Parameters
     use_scan_matching: true
     use_scan_barycenter: true
-    minimum_travel_distance: 0.1
+    minimum_travel_distance: 0.5
     minimum_travel_heading: 0.57
-    scan_buffer_size: 30
+    scan_buffer_size: 5
     scan_buffer_maximum_scan_distance: 0.5
     link_match_minimum_response_fine: 0.1
     link_scan_maximum_distance: 0.75
