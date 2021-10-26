@@ -4,6 +4,7 @@ services:
   panther_gazebo:
     build:
       context: ./../../
+    tty: true
     runtime: nvidia
     environment:
       - "DISPLAY"
@@ -12,6 +13,6 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./panther.urdf.xacro:/ros_ws/src/panther_description/urdf/panther.urdf.xacro
-      - ./panhter_nvidia.launch:/ros_ws/src/panther_gazebo/launch/panhter_nvidia.launch
-    command: roslaunch panther_gazebo panhter_nvidia.launch
+      - ./panther.urdf.xacro:/app/ros2_ws/src/panther_description/models/panther/panther.urdf.xacro
+      - ./panther.rviz:/app/ros2_ws/src/panther_description/rviz/panther.rviz
+    command: ros2 launch panther_gazebo panther.launch.py use_gpu:=true

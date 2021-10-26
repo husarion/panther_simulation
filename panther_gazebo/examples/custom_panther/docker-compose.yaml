@@ -4,10 +4,12 @@ services:
   panther_gazebo:
     build:
       context: ./../../
+    tty: true
     environment:
       - "DISPLAY"
       - "QT_X11_NO_MITSHM=1"
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./panther.urdf.xacro:/ros_ws/src/panther_description/urdf/panther.urdf.xacro
-    command: roslaunch panther_gazebo panther_rviz.launch
+      - ./panther.urdf.xacro:/app/ros2_ws/src/panther_description/models/panther/panther.urdf.xacro
+      - ./panther.rviz:/app/ros2_ws/src/panther_description/rviz/panther.rviz
+    command: ros2 launch panther_gazebo panther.launch.py

@@ -3,7 +3,7 @@ name: Build/Publish Docker Image
 on:
   push:
     branches:
-      - 'main'
+      - 'ros2'
   workflow_dispatch:
     inputs:
       tag:
@@ -48,6 +48,6 @@ jobs:
         file: ./panther_gazebo/Dockerfile
         platforms: linux/arm64, linux/amd64
         push: true
-        tags: husarion/panther-gazebo:noetic-latest
-        cache-from: type=registry,ref=husarion/panther-gazebo:noetic-latest
+        tags: husarion/panther-gazebo:galactic-latest
+        cache-from: type=registry,ref=husarion/panther-gazebo:galactic-latest
         cache-to: type=inline

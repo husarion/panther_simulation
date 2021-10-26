@@ -1,4 +1,4 @@
-FROM osrf/ros:noetic-desktop-full
+FROM osrf/ros:galactic-desktop
 
 # Use bash instead of sh
 SHELL ["/bin/bash", "-c"]
@@ -7,35 +7,24 @@ SHELL ["/bin/bash", "-c"]
 RUN apt update \
     && apt upgrade -y
 
-RUN apt install -y git \
-    python3-dev \
-    python3-pip \
-    python3-rospkg \
-    ros-$ROS_DISTRO-ros-control \
-    ros-$ROS_DISTRO-ros-controllers \
-    ros-$ROS_DISTRO-joint-state-publisher \
-    ros-$ROS_DISTRO-hector-gazebo-plugins
+RUN apt install -y    ros-$ROS_DISTRO-xacro 
+RUN apt install -y    ros-$ROS_DISTRO-geographic-msgs 
+RUN apt install -y    ros-$ROS_DISTRO-joint-state-publisher 
+RUN apt install -y    ros-$ROS_DISTRO-gazebo-ros-pkgs 
+RUN apt install -y    ros-$ROS_DISTRO-geometry2
 
-# Python 3 dependencies
-RUN pip3 install \
-        rosdep \
-        rospkg 
+WORKDIR /app
 
 # Create and initialise ROS workspace
-RUN mkdir -p /ros_ws/src
-COPY ./panther_gazebo /ros_ws/src/panther_gazebo
-RUN git clone https://github.com/husarion/panther_description.git --branch=dev \
-    && mv /panther_description/panther_description /ros_ws/src/panther_description \
-    && rm -rf /panther_description
+RUN mkdir -p ros2_ws/src
+RUN git clone https://github.com/husarion/panther_description.git --branch=ros2-gazebo \
+    && git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git --branch=foxy-devel ros2_ws/src/hector_gazebo
 
-WORKDIR /ros_ws
-RUN mkdir build \
+COPY ./panther_gazebo ros2_ws/src/panther_gazebo
+
+RUN cd ros2_ws \
     && source /opt/ros/$ROS_DISTRO/setup.bash \
-    && rosdep update \
-    && rosdep install --from-paths src --ignore-src -r -y \
-    && catkin_make install
-
-WORKDIR /
+    && colcon build --symlink-install
 
 # Clear 
 RUN apt clean \

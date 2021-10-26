@@ -4,10 +4,10 @@ services:
   panther_gazebo:
     build:
       context: ./../../
+    tty: true
     environment:
       - "DISPLAY"
       - "QT_X11_NO_MITSHM=1"
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./panther_mecanum.launch:/ros_ws/src/panther_gazebo/launch/panther_mecanum.launch
-    command: roslaunch panther_gazebo panther_mecanum.launch
+    command: ros2 launch panther_gazebo panther.launch.py wheel_props_path:=/app/ros2_ws/src/panther_description/models/panther/config/WH02.yaml
