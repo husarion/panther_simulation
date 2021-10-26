@@ -3,7 +3,7 @@ version: "3.4"
 services:
   # ROS Galactic simulation
   panther_gazebo:
-    image: panther-gazebo:galactic-latest
+    image: husarion/panther-gazebo:galactic-latest
     tty: true
     environment:
       - "DISPLAY"

@@ -7,11 +7,12 @@ SHELL ["/bin/bash", "-c"]
 RUN apt update \
     && apt upgrade -y
 
-RUN apt install -y    ros-$ROS_DISTRO-xacro 
-RUN apt install -y    ros-$ROS_DISTRO-geographic-msgs 
-RUN apt install -y    ros-$ROS_DISTRO-joint-state-publisher 
-RUN apt install -y    ros-$ROS_DISTRO-gazebo-ros-pkgs 
-RUN apt install -y    ros-$ROS_DISTRO-geometry2
+RUN apt install -y \
+    ros-$ROS_DISTRO-xacro \
+    ros-$ROS_DISTRO-geographic-msgs \
+    ros-$ROS_DISTRO-joint-state-publisher \
+    ros-$ROS_DISTRO-gazebo-ros-pkgs \
+    ros-$ROS_DISTRO-geometry2
 
 WORKDIR /app
 
