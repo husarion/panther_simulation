@@ -3,9 +3,7 @@ version: "3.4"
 services:
   # ROS Galactic simulation
   panther_gazebo:
-    # image: husarion/panther-gazebo:galactic-latest
-    build:
-      context: ../..
+    image: husarion/panther-gazebo:galactic-latest
     tty: true
     runtime: nvidia
     environment:
@@ -15,6 +13,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./panther.rviz:/app/ros2_ws/src/panther_description/rviz/panther.rviz
     command: ros2 launch panther_gazebo panther.launch.py use_gpu:=true
 
   # ROS Galactic Navigation 2

@@ -17,9 +17,12 @@ WORKDIR /app
 
 # Create and initialise ROS workspace
 RUN mkdir -p ros2_ws/src
-RUN git clone https://github.com/husarion/panther_description.git --branch=ros2-gazebo --single-branch ros2_ws/src/panther_description \
-    && git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git --branch=foxy-devel --single-branch ros2_ws/src/hector_gazebo
+RUN git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git --branch=foxy-devel --single-branch ros2_ws/src/hector_gazebo \
+    && git clone https://github.com/husarion/panther_description.git --branch=ros2-gazebo --single-branch \
+    && mv panther_description/panther_description ros2_ws/src/panther_description \
+    && rm -rf /panther_description
 
+    
 COPY ./panther_gazebo ros2_ws/src/panther_gazebo
 
 RUN cd ros2_ws \

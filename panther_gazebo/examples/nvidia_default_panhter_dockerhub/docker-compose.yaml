@@ -2,9 +2,7 @@ version: "3.4"
 
 services:
   panther_gazebo:
-    # image: husarion/panther-gazebo:galactic-latest
-    build:
-      context: ../..
+    image: husarion/panther-gazebo:galactic-latest
     tty: true
     runtime: nvidia
     environment:

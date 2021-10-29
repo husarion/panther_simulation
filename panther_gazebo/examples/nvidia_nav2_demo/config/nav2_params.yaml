@@ -62,24 +62,24 @@ controller_server:
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      desired_linear_vel: 1.5
-      min_lookahead_dist: 2.5
-      max_lookahead_dist: 3.0
+      desired_linear_vel: 0.8
+      min_lookahead_dist: 0.7
+      max_lookahead_dist: 1.4
       lookahead_time: 3.5
-      rotate_to_heading_angular_vel: 1.8
+      rotate_to_heading_angular_vel: 2.5
       transform_tolerance: 0.1
       use_velocity_scaled_lookahead_dist: true 
       min_approach_linear_velocity: 0.05
       use_approach_linear_velocity_scaling: true
-      max_allowed_time_to_collision: 1.0
+      max_allowed_time_to_collision: 1.5
       use_regulated_linear_velocity_scaling: true
       use_cost_regulated_linear_velocity_scaling: true
-      regulated_linear_scaling_min_radius: 0.3
-      regulated_linear_scaling_min_speed: 0.3
+      regulated_linear_scaling_min_radius: 0.05
+      regulated_linear_scaling_min_speed: 0.05
       use_rotate_to_heading: true
       allow_reversing: false
       rotate_to_heading_min_angle: 0.785
-      max_angular_accel: 5.0
+      max_angular_accel: 3.0
 
 
 
@@ -104,8 +104,8 @@ local_costmap:
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 2.0
-        inflation_radius: 2.0
+        cost_scaling_factor: 1.8
+        inflation_radius: 1.5
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -140,7 +140,7 @@ local_costmap:
 global_costmap:
   global_costmap:
     ros__parameters:
-      update_frequency: 2.0
+      update_frequency: 0.5
       publish_frequency: 2.0 
       global_frame: map
       robot_base_frame: base_link
@@ -165,7 +165,7 @@ global_costmap:
           obstacle_min_range: 0.0
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 2.0
+        cost_scaling_factor: 1.5
         inflation_radius: 3.0
       always_send_full_costmap: True
       
