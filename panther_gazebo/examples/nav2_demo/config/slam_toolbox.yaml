@@ -16,15 +16,15 @@ slam_toolbox:
     scan_topic: laser/scan
 
     debug_logging: false
-    throttle_scans: 1
+    throttle_scans: 10
     transform_publish_period: 0.25 #if 0 never publishes odometry
-    map_update_interval: 3.0
+    map_update_interval: 1.0
     resolution: 0.06
-    max_laser_range: 12.0 #for rastering images
+    max_laser_range: 16.0 #for rastering images
     minimum_time_interval: 0.05
-    transform_timeout: 0.5
+    transform_timeout: 1.0
     tf_buffer_duration: 10.0
-    stack_size_to_use: 80000000 #// program needs a larger stack size to serialize large maps
+    stack_size_to_use: 60000000 #// program needs a larger stack size to serialize large maps
     enable_interactive_mode: false
 
     # General Parameters
