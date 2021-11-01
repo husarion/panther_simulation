@@ -35,7 +35,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-    command: roslaunch panther_gazebo panhter_nvidia.launch
+    command: roslaunch panther_gazebo panther_rviz.launch
 ```
 
 ## Examples

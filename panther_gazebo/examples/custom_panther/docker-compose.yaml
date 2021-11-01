@@ -10,5 +10,5 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./panther.rviz:/app/ros_ws/src/panther_description/rviz/panther.rviz
-      - ./panther.urdf.xacro:/ros_ws/src/panther_description/urdf/panther.urdf.xacro
+      - ./panther.urdf.xacro:/app/ros_ws/src/panther_description/urdf/panther.urdf.xacro
     command: roslaunch panther_gazebo panther_rviz.launch
