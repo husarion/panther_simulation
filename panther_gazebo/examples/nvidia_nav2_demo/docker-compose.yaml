@@ -13,7 +13,9 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-    command: ros2 launch panther_gazebo panther.launch.py use_gpu:=true
+    command: >
+      ros2 launch panther_gazebo panther.launch.py 
+      use_gpu:=true
 
   # ROS Galactic Navigation 2
   nav2:
@@ -25,6 +27,9 @@ services:
     volumes:
       - ./config/nav2_params.yaml:/app/ros2_ws/src/husarion_nav2/config/nav2_params.yaml
       - ./config/slam_toolbox.yaml:/app/ros2_ws/src/husarion_nav2/config/slam_toolbox.yaml
-    command: sh -c "
-     sleep 5 &&
-     ros2 launch husarion_nav2 bringup_both.launch.py"
+    command: 
+      - sh
+      - -c
+      - |
+        sleep 5
+        ros2 launch husarion_nav2 bringup_both.launch.py

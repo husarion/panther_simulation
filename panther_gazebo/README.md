@@ -97,8 +97,13 @@ docker-compose up
 ```
 
 For users with Nvidia GPU:
+
 ``` bash
 cd examples/nvidia_default_panhter_dockerhub
 xhost local:docker
 docker-compose up
 ```
+
+> **IMPORTANT**
+>
+> Gazebo needs up to few minutes to start. After executing `docker-compose up` command, please be patient and don't worry about warnings in the log - they will disappear while Gazebo is launched.

@@ -1,6 +1,5 @@
 ## docker && docker-compose
 
-- `docker-compose`: v1.27.0+ that supports `runtime: ... `. More info [here](https://docs.docker.com/compose/gpu-support/#use-of-service-runtime-property-from-compose-v23-format-legacy)
 - `docker`: version 20.10.8
 
 Installation:
@@ -11,12 +10,36 @@ curl -sL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
 arch=$(dpkg --print-architecture) && \
 sudo -E add-apt-repository "deb [arch=${arch}] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
 sudo -E apt-get update && \
-sudo -E apt-get -y install docker-ce docker-compose
+sudo -E apt-get -y install docker-ce
 ```
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+```
+
+## docker-compose
+
+- `docker-compose`: v1.27.0+ that supports `runtime: ... `. More info [here](https://docs.docker.com/compose/gpu-support/#use-of-service-runtime-property-from-compose-v23-format-legacy)
+
+Based on [official guide](https://docs.docker.com/compose/install/):
+
+1. Download `docker-compose` binary file
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+2. Make it executable
+
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+3. Create a symbolic link
+
+```bash
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
 ## nvidia runtime
