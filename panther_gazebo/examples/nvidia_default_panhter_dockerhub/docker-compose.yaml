@@ -4,6 +4,7 @@ services:
   panther_gazebo:
     image: husarion/panther-gazebo:noetic-latest
     runtime: nvidia
+    tty: true 
     environment:
       - "DISPLAY"
       - "QT_X11_NO_MITSHM=1"

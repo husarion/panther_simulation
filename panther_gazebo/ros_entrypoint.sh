@@ -2,6 +2,7 @@
 set -e
 
 # setup ros environment
-source "/ros_ws/devel/setup.bash"
+source "/opt/ros/$ROS_DISTRO/setup.bash"
+source "/app/ros_ws/devel/setup.bash"
 
 exec "$@"

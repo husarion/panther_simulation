@@ -3,7 +3,7 @@ version: '3.4'
 services:
   panther_gazebo:
     build:
-      context: ./../../
+      context: ../..
     runtime: nvidia
     environment:
       - "DISPLAY"
@@ -12,6 +12,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./panther.urdf.xacro:/ros_ws/src/panther_description/urdf/panther.urdf.xacro
-      - ./panhter_nvidia.launch:/ros_ws/src/panther_gazebo/launch/panhter_nvidia.launch
+      - ./panther.rviz:/app/ros_ws/src/panther_description/rviz/panther.rviz
+      - ./panther.urdf.xacro:/app/ros_ws/src/panther_description/urdf/panther.urdf.xacro
+      - ./panhter_nvidia.launch:/app/ros_ws/src/panther_gazebo/launch/panhter_nvidia.launch
     command: roslaunch panther_gazebo panhter_nvidia.launch

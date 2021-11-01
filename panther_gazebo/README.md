@@ -43,13 +43,13 @@ In order to run simulation inside docker you have to give it access to you X11 s
 
 ``` bash
 cd examples/default_panhter_dockerhub
-xhost local:root
+xhost local:docker
 docker-compose up
 ```
 
 For users with Nvidia GPU:
 ``` bash
 cd examples/nvidia_default_panhter_dockerhub
-xhost local:root
+xhost local:docker
 docker-compose up
 ```

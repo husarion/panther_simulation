@@ -10,7 +10,7 @@
 
   <node name="state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find panther_gazebo)/rviz/panther.rviz" required="true" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find panther_description)/rviz/panther.rviz" required="true" output="screen"/>
 
   <include file="$(find panther_gazebo)/launch/panther_world.launch"></include>
 
