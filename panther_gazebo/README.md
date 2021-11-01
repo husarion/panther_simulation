@@ -48,9 +48,9 @@ Spawns panther model in Gazebo world and starts `robot_state_publisher` node.
 
 | param | default | description |
 | - | - | - |
-| `pos_x` | 0.0 | x coordinate of a spawn point |
-| `pos_y` | 0.0 | y coordinate of a spawn point|
-| `pos_z` | 3.5 | z coordinate of a spawn point |
+| `pos_x` | 0.0 | "x" coordinate of a spawn point |
+| `pos_y` | 0.0 | "y" coordinate of a spawn point|
+| `pos_z` | 3.5 | "z" coordinate of a spawn point |
 | `panther_common_props_path` | `$(find panther_description)/models/panther/config/panther_common.yaml` | path to file with panther common phisical parameters |
 | `wheel_props_path` | `$(find panther_description)/models/panther/config/WH01.yaml` | path to file with panther wheel definition |
 | `use_gpu` | false | enables GPU support in robot model |
@@ -66,8 +66,10 @@ Starts Gazebo and loads world file.
 
 #### params
 
-- `world` (*default: $(find panther_description)/worlds/willowgarage.world*) - path to file with Gazebo world.
-- `use_sim_time` (*default: true*) - sets `use_sim_time` to given value.
+| param | default | description |
+| - | - | - |
+| `world` | `$(find panther_description)/worlds/willowgarage.world` | path to file with Gazebo world |
+| `use_sim_time` | true | sets `use_sim_time` to given value |
 
 
 ### `panther.launch.py`
@@ -76,10 +78,13 @@ Launches all above launch files. Be default this file spawns robot in location `
 
 #### params
 
-- `world` (*default: $(find panther_description)/worlds/willowgarage.world*) - path to file with Gazebo world.
-- `panther_common_props_path` (*default: $(find panther_description)/models/panther/config/panther_common.yaml*) - path to file with panther common phisical parameters.
-- `wheel_props_path` (*default: $(find panther_description)/models/panther/config/WH01.yaml*) - path to file with panther wheel definition.
-- `use_gpu` (*default: false*) - enables GPU support in robot model.
+| param | default | description |
+| - | - | - |
+| `world` | `$(find panther_description)/worlds/willowgarage.world` | path to file with Gazebo world |
+| `panther_common_props_path` | `$(find panther_description)/models/panther/config/panther_common.yaml` | path to file with panther common phisical parameters |
+| `wheel_props_path` | `$(find panther_description)/models/panther/config/WH01.yaml` | path to file with panther wheel definition |
+| `use_gpu` | false | enables GPU support in robot model |
+
 
 ## Examples
 
