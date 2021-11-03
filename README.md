@@ -1,5 +1,5 @@
 # panther_simulation
 Simulation models for Panther (including Gazebo)
 
-Available dockers:
+Available Docker images:
 - [`panther-gazebo`](./panther_gazebo) for ROS Galactic.
