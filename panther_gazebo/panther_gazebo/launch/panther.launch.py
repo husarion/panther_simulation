@@ -36,9 +36,9 @@ def generate_launch_description():
       }.items(),
     ),
 
-    IncludeLaunchDescription(
-      PythonLaunchDescriptionSource([panther_gazebo, '/launch/panther_rviz2.launch.py'])
-    ),
+    # IncludeLaunchDescription(
+    #   PythonLaunchDescriptionSource([panther_gazebo, '/launch/panther_rviz2.launch.py'])
+    # ),
   ])
 
 
