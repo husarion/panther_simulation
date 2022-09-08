@@ -42,14 +42,14 @@ services:
 In order to run simulation inside docker you have to give it access to you X11 server and start *docker-compose*.
 
 ``` bash
-cd examples/default_panhter_dockerhub
+cd examples/default_panther_dockerhub
 xhost local:docker
 docker-compose up
 ```
 
 For users with Nvidia GPU:
 ``` bash
-cd examples/nvidia_default_panhter_dockerhub
+cd examples/nvidia_default_panther_dockerhub
 xhost local:docker
 docker-compose up
 ```
