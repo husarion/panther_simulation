@@ -11,15 +11,14 @@ def generate_launch_description():
 
   use_sim_time = LaunchConfiguration('use_sim_time', default=True)
   panther_description = get_package_share_directory('panther_description')
-  panther_description_config_path = os.path.join(panther_description, 'models', 'panther', 'config')
-  xacro_file = os.path.join(panther_description, 'models', 'panther', 'panther.urdf.xacro')
+  panther_description_config_path = os.path.join(panther_description, 'config')
+  xacro_file = os.path.join(panther_description, 'urdf', 'panther.urdf.xacro')
 
   pos_x = LaunchConfiguration('pos_x', default='0.0')
   pos_y = LaunchConfiguration('pos_y', default='0.0')
-  pos_z = LaunchConfiguration('pos_z', default='0.35')
+  pos_z = LaunchConfiguration('pos_z', default='0.0')
 
-  panther_common_props_path = LaunchConfiguration('panther_common_props_path', default=os.path.join(panther_description_config_path, 'panther_common.yaml'))
-  wheel_props_path = LaunchConfiguration('wheel_props_path', default=os.path.join(panther_description_config_path, 'WH01.yaml'))
+  wheel_config_path = LaunchConfiguration('wheel_config_path', default=os.path.join(panther_description_config_path, 'WH01.yaml'))
   use_gpu = LaunchConfiguration('use_gpu', default=False)
 
 
@@ -33,8 +32,7 @@ def generate_launch_description():
         'use_sim_time': use_sim_time,
         'robot_description' : Command([
           'xacro --verbosity 0 ', xacro_file,
-          ' panther_common_props_path:=', panther_common_props_path,
-          ' wheel_props_path:=', wheel_props_path,
+          ' wheel_config_path:=', wheel_config_path,
           ' use_gpu:=', use_gpu])
         }]
     ),
