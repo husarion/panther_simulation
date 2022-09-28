@@ -3,21 +3,28 @@
 <package format="3">
   <name>panther_gazebo</name>
   <version>0.0.1</version>
-  <description>The panther_gazebo package</description>
-  <maintainer email="krzysztof.wojciechowski@husarion.com">Krzysztof Wojciechowski</maintainer>
-  <license>MIT</license>
-  <buildtool_depend>ament_cmake</buildtool_depend>
-  
+  <description>Gazebo-classic simualiton configuration for Husarion Panther robot</description>
+  <license>Apache License 2.0</license>
+
+  <author email="krzysztof.wojciechowski@husarion.com">Krzysztof Wojciechowski</author>
+  <maintainer email="contact@husarion.com">Husarion</maintainer>
+
+  <url type="website">https://husarion.com</url>
+  <url type="bugtracker">https://github.com/husarion/panther_description/issues</url>
+  <url type="repository">https://github.com/husarion/panther_description/tree/ros2</url>
+
   <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>hector_gazebo_plugins</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  
   <build_depend>panther_description</build_depend>
 
-  <exec_depend>controller_manager</exec_depend>
-  <exec_depend>joint_state_controller</exec_depend>
-  <exec_depend>joint_state_publisher</exec_depend>
-  <exec_depend>gazebo_ros</exec_depend>
-  <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>panther_description</exec_depend>
-  <exec_depend>xacro</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == foxy">joint_state_publisher</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == galactic">joint_state_broadcaster</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == humble">joint_state_broadcaster</exec_depend>
+  
 
   <export>
     <build_type>ament_cmake</build_type>
