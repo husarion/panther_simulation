@@ -4,8 +4,7 @@ project(panther_gazebo)
 
 find_package(catkin REQUIRED)
 
-catkin_package(
-)
+catkin_package()
 
 install(DIRECTORY launch
 	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
