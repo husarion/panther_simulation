@@ -17,6 +17,7 @@
   <depend>gazebo_plugins</depend>
   <depend>gazebo_ros</depend>
   <depend>gazebo_ros_control</depend>
+  <depend>hector_gazebo_plugins</depend>
   <depend>joint_state_controller</depend>
   <depend>joint_state_publisher</depend>
   <depend>robot_state_publisher</depend>
