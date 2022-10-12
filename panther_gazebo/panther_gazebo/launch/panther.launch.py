@@ -12,7 +12,7 @@ def generate_launch_description():
   panther_description = get_package_share_directory('panther_description')
   panther_description_config_path = os.path.join(panther_description, 'config')
 
-  wheel_config_path = LaunchConfiguration('wheel_config_path', default=os.path.join(panther_description_config_path, 'WH04.yaml'))
+  wheel_config_path = LaunchConfiguration('wheel_config_path', default=os.path.join(panther_description_config_path, 'WH01.yaml'))
   use_gpu = LaunchConfiguration('use_gpu', default=False)
 
   return LaunchDescription([
