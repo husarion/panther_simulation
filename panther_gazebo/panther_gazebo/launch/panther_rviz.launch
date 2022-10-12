@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <include file="$(find panther_gazebo)/launch/panther.launch"></include>
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find panther_description)/rviz/panther.rviz" required="true" output="screen"/>
