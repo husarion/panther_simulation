@@ -1,20 +1,27 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>panther_gazebo</name>
-  <version>0.0.0</version>
-  <description>The panther_gazebo package</description>
+  <version>0.0.1</version>
+  <description>Gazebo simulation configuration for Husarion Panther robot</description>
 
   <maintainer email="support@husarion.com">Husarion</maintainer>
-
+  <author email="krzysztof.wojciechowski@husarion.com">Krzysztof Wojciechowski</author>
   <license>Apache License 2.0</license>
+
+  <url type="website">https://husarion.com/</url>
+  <url type="repository">https://github.com/husarion/panther_simulation/tree/ros1</url>
+  <url type="bugtracker">https://github.com/husarion/panther_simulation/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>controller_manager</depend>
-  <depend>joint_state_controller</depend>
-  <depend>joint_state_publisher</depend>
+  <depend>gazebo_plugins</depend>
   <depend>gazebo_ros</depend>
   <depend>gazebo_ros_control</depend>
+  <depend>hector_gazebo_plugins</depend>
+  <depend>joint_state_controller</depend>
+  <depend>joint_state_publisher</depend>
   <depend>robot_state_publisher</depend>
+  <depend>ros_control</depend>
   <depend>xacro</depend>
 
 </package>
