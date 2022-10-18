@@ -14,7 +14,7 @@
   <url type="bugtracker">https://github.com/husarion/panther_description/issues</url>
 
   <depend>gazebo_plugins</depend>
-  <depend>gazebo_ros</depend>depend
+  <depend>gazebo_ros</depend>
   <depend>hector_gazebo_plugins</depend>
   <depend>panther_description</depend>
   <depend>urdf</depend>
